@@ -1,15 +1,15 @@
 variable "vpc_cidr" {
-  description = "Vpc CIDR"
+  description = "VPC CIDR"
   type        = string
 }
 
 variable "public_subnets" {
-  description = "public_subnets CIDR"
+  description = "Public Subnets CIDR"
   type        = list(string)
 }
 
 variable "private_subnets" {
-  description = "private_subnets CIDR"
+  description = "Private Subnets CIDR"
   type        = list(string)
 }
 
@@ -17,3 +17,4 @@ variable "instance_types" {
   description = "Node Instances"
   type        = list(string)
 }
+

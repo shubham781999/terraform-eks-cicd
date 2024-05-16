@@ -1,4 +1,4 @@
-#Vpc
+# VPC
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
@@ -9,7 +9,6 @@ module "vpc" {
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
 
-
   enable_dns_hostnames = true
   enable_nat_gateway   = true
   single_nat_gateway   = true
@@ -17,20 +16,19 @@ module "vpc" {
   tags = {
     "kubernetes.io/cluster/my-eks-cluster" = "shared"
   }
+
   public_subnet_tags = {
     "kubernetes.io/cluster/my-eks-cluster" = "shared"
     "kubernetes.io/role/elb"               = 1
-
   }
+
   private_subnet_tags = {
     "kubernetes.io/cluster/my-eks-cluster" = "shared"
     "kubernetes.io/role/private_elb"       = 1
-
   }
 }
 
-#EKS
-
+# EKS
 module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   cluster_name                   = "my-eks-cluster"
@@ -47,8 +45,10 @@ module "eks" {
       instance_types = var.instance_types
     }
   }
+
   tags = {
     Environment = "dev"
     Terraform   = "true"
   }
 }
+
