@@ -1,3 +1,8 @@
+
+# Fetch availability zones
+data "aws_availability_zones" "azs" {}
+
+
 #Vpc
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
