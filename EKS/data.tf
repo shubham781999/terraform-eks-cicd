@@ -1,7 +1,8 @@
 data "aws_availability_zones" "azs" {}
 
 data "aws_eks_cluster" "cluster" {
-  name = "my-eks-cluster"  # Specify the name of your EKS cluster here
+  name = module.eks.cluster_name
+  depends_on = [module.eks]
 }
 
 data "aws_eks_cluster_auth" "cluster" {
